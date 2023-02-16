@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+“고생보다 더 중요한 교육은 없다. -지스레지”,
+“교사의 임무는 독창적인 표현과 지식의 희열을 불러 일으켜주는 일이다. -아인슈타인”,
+“교수(敎授)하는 자의 권위는 흔히 교육받고자 원하는 자를 해친다. -키케로”,
+“교육에서는 이성의 삶이 과학적인 실험으로부터 이지적인 이론으로, 그리고는 정신적인 느낌으로, 그리고는 신에게로 서서히 나아간다. -칼릴 지브란”,
+“교육은 그대의 머리 속에 씨앗을 심어주는 것이 아니라, 그대의 씨앗들이 자라나게 해 준다. -칼릴 지브란”,
+“교육은 불완전한 것이 보통이다. 그 각각의 작용에 따라 두 개의 대립하는 경향, 즉 해방과 속박에 봉사해야 하기 때문이다. -게오르크 짐멜”,
+“교육은 어머니의 무릎에서 시작되고, 유년기에 들은 모든 언어가 성격을 형성한다. -바로”,
+“교육은 우리를 야수보다도 더 어리석게 만들어 놓았다. 여기저기서 수천의 목소리가 우리에게 들려오고 있는데도 우리들의 귀는 잡다한 지식으로 완전히 막혀버렸기 때문이다. -쟝 지로도”,
+“교육은 지도하기 쉬운 민중을 만든다. 그러나 부리기 어려운 민중을 만든다. 이른바 통치하기는 쉬워지지만, 노예로 부리는 것은 불가능하게 한다. -헨리 프뤄감”,
+“교육은 참으로 훌륭한 것이다. 그러나 때로는 우리들 스스로 가치있다고 깨달은 것들은 교육을 통해서 깨우쳐진 것이 아니라는 것을 명심해 두는 것이 좋다. -오스카 와일드”,
+“교육은 책을 읽을 수는 있으되 어떤 책이 읽을 가치가 있는 것인지를 분간 못하는 인구만을 증가시켰다. -트레붜량”,
+“교육은 천부(天賦)의 가치를 높이고, 올바른 수련은 마음을 굳세게 한다. -호라티우스”,
+“교육은 학교를 졸업함으로써 끝나는 것이 아니고, 일생 동안 계속해야 하는 것이다. -존 라보크”,
+“교육의 목적은 기계를 만드는 것이 아니라, 인간을 만드는데 있다. -루소”,
+“교육의 목표는, 사실이 아닌 가치에 대한 지식이다. - W.R. 잉그”,
+“교육의 목표는 지식의 증진과 진리의 씨뿌리기이다. - J.F. 케네디”,
+“교육의 뿌리는 쓰지만 그 열매는 달다. -아리스토텔레스”,
+“교육의 비결은 학생들을 존중하는 데 있지요. -랠프 월도 에머슨”,
+“교육의 참된 목적은 각자가 평생 자기의 교육을 계속할 수 있게 하는 데 있다. -듀이”,
+“교육이란 알지 못하는 바를 알도록 가르치는 것을 의미하는 것이 아니라, 교육은 사람들이 행동하지 않을 때, 행동하도록 가르치는 것을 의미한다. - 마크 트웨인”,
+“교육이란 화를 내지 않고, 자신감을 잃지 않으면서도 거의 모든 것에 귀기울일 수 있는 능력이다. -로버트 프로스트”,
+“교육이란 대가없는 자원봉사 활동과 같은 것이다. 조직에 있어서 지도의 본질 또한 이것과 다를 바 없다. -김종민”,
+“교육의 최고 목표는 지식이 아니라 행동이다. 교육은 삶을 위한 준비여서는 곤란하며, 삶, 바로 그 자체여야 한다. -유동범”,
+“내가 이제까지 관찰한 바, 매의 효과는 그저 사내아이들을 겁쟁이로 만들거나 고집불통으로 만드는 것 뿐, 나는 그 이외의 효과를 본적이 결코 없다. -몽테뉴”,
+“다섯살 된 자식은 당신의 주인이고, 열살 된 자식은 노예이며, 열 다섯살 된 자식은 동등하게 된다. 그 후부터는 교육시키는 방법 여하에 따라 벗이 될 수도 적이 될 수도 있다. -탈무드”,
+“대학은 직업을 위한 훈련학교로 되어가고 있다. 그것은 교양 따위에는 전혀 무관심한 전권(全權)주의자들이 요청하고 있기 때문이다. -윌리엄 러셀”,
+“뛰어난 사람은 두 가지 교육을 받고 있다. 그 하나는 교사로부터 받는 교육이요, 다른 하나는 자기 자신으로부터 받는 것이다. -탈무드”,
+“만나는 사람마다 교육의 기회로 삼는다. -링컨”,
+“모든 국가의 기초는 그 나라 젊은이들의 교육이다. -디오게네스”,
+“모든 인습과 미신, 위선에서 해방되었을 때, 그때 비로소 우리는 교육되었다고 말할 수 있다. -닐”,
+“문제아동이란 절대 없다. 있는 것은 문제 있는 부모뿐이다. -닐”,
+“벌을 주는 것보다는 격려해 주는 것이 훨씬 더 효과적인 교육 방법이다.”,
+“분명히 교육은 두 가지가 있다. 우리는 누구나 돈 버는 법과 사는 법을 배워야 한다. -제임스 트라스로우 아담스”,
+“사고력을 기르지 못하는 교육은 결국 정신을 타락시키는 교육이다. -아나톨 프랑스”,
+“사내아이는 머슴에 맞도록, 계집아이는 엄마가 되도록 교육하여야 한다. 그리하면 어디를 가든 잘 될 것이다. -괴테”,
+“사람에게 가장 필요한 교육은 지배와 복종이다. -플루타르크”,
+“사람으로써 지켜야 할 도리가 있으니 배불리 먹고, 따뜻하게 입고, 편안히 산다고 할 지라도, 교육이 없으면 새나 짐승에 가깝다. -맹자”,
+“싸리나무 회초리와 가시나무 회초리, 두 개는 모두 교육의 권위를 유지하기 위한 것이다. 약간의 체벌은 교육상 필요한 것이다. -예기”,
+“서툰 의사는 한 번에 한 사람을 해치지만, 서툰 교사는 130명을 해친다. -보이어”,
+“세부적인 규칙을 만들어 실시하는 것을 교육으로 삼는다면 진정한 인간 교육은 불가능할 것입니다. 그 대신 '신사가 되십시오(Be gentleman!).' 이 한마디로 충분하지 않습니까? - W. 클라크”,
+“식물은 재배함으로써 자라고 인간은 교육을 함으로써 사람이 된다. -루소”,
+“아이들은 교육을 받아야 하지만 또한 그들 자신이 스스로 깨우칠 수 있도록 해주어야 한다. -디므넷”,
+“아이에게는 비평보다는 몸소 실천해 보이는 모범이 필요하다. -J. 주베르”,
+“어떤 경우든 부모의 태도가 아이들의 가장 효과적인 교사 역할을 한다.”,
+“어려운 일을 쉽게 만들 수 있는 사람이 교육자이다. -아미엘”,
+“어린이 교육은 과거의 가치 전달에 있는 것이 아니라, 미래의 새로운 가치 창조에 있다. -존 듀이”,
+“어린이를 정직한 아이로 키우는 것이 바로 교육의 시작이다. -존 러스킨”,
+“어린이에게는 과학을 가르치는 것이 아니다. 단지 과학의 취미를 주면 족하다. - J.J. 루소”,
+“어린이의 교육은 면학의 욕망과 흥미를 환기시키는 것이 가장 중요하다. 그렇지 않으면 책을 등에 진 나귀를 기르는 꼴이 되어버린다. -몽테뉴”,
+“올바른 사회는 오직 어린이들에게 참다운 교육을 실시함으로써 이루어질 수 있다. -페스탈로치”,
+“옳은 행동을 하고 남보다 먼저 모범을 보이는 것이 교육이라는 것이다. -순자”,
+“완전한 교육 방식이라 할지라도 그것은 단지 젊은 사람들의 자연에 대한 호기심과 그것을 만족시키는 방법밖에는 되지 않는 것이다. -아나톨 프랑스”,
+“우리를 신뢰하는 자가 우리를 교육한다. - G. 엘리어트”,
+“인간은 교육을 통하지 않고는 인간이 될 수 없는 유일한 존재다. -칸트”,
+“인간은 모방적인 동물이다. 이 특질은 인간의 모든 교육의 근원이다. 요람에서 무덤까지 인간은 남이 하는 것을 보고 그대로 하기를 배운다. -토머스 제퍼슨”,
+“인간은 잠시 왔다 지나가는 나그네에 불과하다. 하지만 인류의 보편적 교육은 천천히, 그러나 중단없이 계속될 것이다. -마찌니”,
+“인간을 지혜의 힘으로만 교육시키고 도덕으로 교육시키지 않는다면, 사회에 대하여 위험을 기르는 꼴이 된다. - D. 루즈벨트”,
+“앞으로의 세계는 지식이 모든 생산 수단을 지배하게 되며, 이에 대비한 후세 교육없이는 어느 나라든 생존하기 어렵다. -앨빈 토플러”,
+“자연계에서 인간과 야수와의 차이점보다도 훨씬 더 큰 차이점은 사람과 사람 사이에서 교육이란 것이다. -존 아담스”,
+“정력적으로 활동하는 인간은 타인의 생활이나 행동에 강한 영향을 미친다. 이것이야말로 가장 실천적인 교육의 모습이다.”,
+“지식이나 지능이라는 것이 아주 귀중한 것이긴 하지만, 그것으로는 부족합니다. 교육은 지식과 그 지식을 실천할 도덕적 용기, 이 두 가지를 개발하지 않으면 안 됩니다. -시드니 훅”,
+“지적교육의 주요한 부분은 사실의 습득이 아니라 습득한 것을 얼마나 잘 실천하느냐 하는 것을 배우는 것이다. -올리버 웬델 홈즈”,
+“젊은이들을 수학적으로 가르쳐야 한다. -도올 김용옥”,
+“학교가 없는 도시에는 사람이 살지 못한다. -탈무드”,
+“학교는 사회로 나가기 전 반드시 거쳐야 할 곳이기는 하지만 그렇다고 삶을 준비하도록 가르쳐 주는 곳은 못된다. -디므넷”,
+“학교는 학생이 세상으로부터 도망가는 자가 아니라, 세상에 나가서 참여하는 사람이 되도록 가르쳐야 한다. -존 시알디”,
+“학생에게 배우고자 하는 의욕을 고양시키지 않으면서 교육하려는 교사는 달구지 않은 쇠를 두들기는 것에 지나지 않는다. -토마스 핀”,
+“한 명의 훌륭한 교사는, 때로는 타락자를 건실한 시민으로 바꿀 수 있다. - P. 윌리”,
+“한 사람의 아버지가 백 사람의 선생보다 낫다.- 조지 허버트”,
+“Time goes now.”,
+“Too early to stop.”,
+“No pain no gain.”,
+“Knowledge is power.”,
+“Pain past is pleasure.”,
+“Asking costs nothing.”,
+“The time never stops.”,
+“Easier said than done.”,
+“Better late than never.”,
+“Never too old to learn.”,
+“Only the educated are free.”,
+“Slow and steady win the race.”,
+“Diligence guarantees success.”,
+“Man is his own worst enemy.”,
+“An early bird catches the worm.”,
+“Time and tide wait for no man.”,
+“There is no royal road to Rome.”,
+“Success doesn't come overnight.”,
+“Idleness is an enemy of success.”,
+“After black clouds, clear weather.”,
+“Look at the flying bird in the sky.”,
+“After black clouds, clear weather.”,
+“One's utmost moves the heavens.”,
+“The beginning is half of the whole.”,
+“Strive for progress, not perfection.”,
+“The first step is always the hardest.”,
+“A full belly is the mother of all evil.”,
+“My success depends on my efforts.”,
+“The world belongs to the energetic.”,
+“Enjoy the pain that you can't avoid.”,
+“Without studying the soul gets sick.”,
+“There is no substitute for hard work.”,
+“None but the smart deserve the fair.”,
+“Today never returns again tomorrow.”,
+“Diligence is the mother of good luck.”,
+“Only in water can you learn to swim.”,
+“A little learning is a dangerous thing.”,
+“Patience is bitter, but its fruit is sweet.”,
+“Knowledge in youth is wisdom in age.”,
+“Today's spittle will be tomorrow's tear.”,
+“The future is gained from present pains.”,
+“We aim above the mark to hit the mark.”,
+“Constant dripping wears away the stone.”,
+“It is better to were out than to rust out.”,
+“A bad workman always blames his tools.”,
+“Constant dripping wears away the stone.”,
+“Heaven helps those who help themselves.”,
+“If the wind will not serve, take to the oars.”,
+“Plenty of preparations lead to good results.”,
+“Alexander himself was once a crying baby.”,
+“Don't postpone today's work to tomorrow.”,
+“Every failure is a stepping stone to success.”,
+"Learning, like success, is anything but a linear process",
+"I am in competition with no one. I have no desire to play the game of being better than anyone. I am simply trying to be better than the person I was yesterday.",
+"If you want to be interesting, you have to be interested.",
+"It's supposed to be hard. If it were easy, everyone would do it.",
+"Don’t worry if you’re not where you want to be yet. Great things take time. ",
+"If it's important you'll find a way. If it's not, you'll find an excuse.",
+"Most people overestimate what they can do in one year and underestimate what they can do in ten years.",
+"A goal without a plan is just a wish.",
+"change your 24 hours and you'll change your life",
+"Stop thinking you are not qualified, not fit, or not experienced enough,",
+"Growth takes place when you start doing stuff you are not qualified to do.",
+"Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.",
+"Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.",
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
